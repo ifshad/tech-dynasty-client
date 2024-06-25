@@ -33,7 +33,7 @@ const SellerPge = () => {
         Add your product!
       </h1>
       {/* Registration Form */}
-      <div className="bg-white rounded-xl px-6 py-8 border w-4/6 m-4">
+      <div className="bg-white rounded-xl px-6 py-8 border w-11/12 md:w-4/6 m-4">
         <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
           <div className="relative">
             <input

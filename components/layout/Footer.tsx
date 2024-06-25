@@ -6,16 +6,16 @@ const Footer: FC = () => {
   return (
     <div className="w-full mt-2">
       <div className="border border-slate-300 mb-2"></div>
-      <div className="grid grid-cols-1 md:grid-cols-5 mb-2">
-        <div className="md:col-span-3">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-2">
+        <div className="col-span-2 md:col-span-3">
           <h1 className="text-2xl font-semibold">TechDynasty</h1>
-          <p className="opacity-90 w-4/6">
+          <p className="opacity-90 md:w-4/6">
             Your one-stop shop for the latest and greatest in electronics.
             Discover, shop, and enjoy top-quality products at unbeatable prices.
           </p>
         </div>
-        <div className="md:col-span-1">
-          <h1 className="mb-3 font-semibold">Policies</h1>
+        <div className="col-span-1">
+          <h1 className="md:mb-3 font-semibold">Policies</h1>
           <ul className="opacity-90">
             <li>
               <Link href="/">Terms & Conditions</Link>
@@ -28,8 +28,8 @@ const Footer: FC = () => {
             </li>
           </ul>
         </div>
-        <div className="md:col-span-1">
-          <h1 className="mb-3 font-semibold">Social</h1>
+        <div className="col-span-1">
+          <h1 className="mb-1 md:mb-3 font-semibold">Social</h1>
           <div className="flex gap-5 opacity-90">
             <Link href="/">
               <FaFacebook />
