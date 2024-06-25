@@ -2,14 +2,14 @@ import Image from "next/image";
 import laptop from "@/public/Images/dmitry-chernyshov-mP7aPSUm7aE-unsplash-removebg-preview.png";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
     <div className="relative">
       {/* Background */}
-      <div className="absolute flex z-0">
-        <div className="w-48 h-48 border rounded-full bg-indigo-900 blur-3xl"></div>
-        <div className="w-48 h-48 border rounded-full bg-indigo-900 blur-3xl"></div>
+      <div className="absolute grid grid-cols-7 z-0">
+        {/* <div className="w-48 h-48 border rounded-full bg-indigo-900 blur-3xl"></div> */}
       </div>
       {/* Introductory Banner */}
       <div className="relative grid grid-cols-7 items-center z-10 border-x-2 border-b-2 p-3 shadow-lg">
@@ -30,6 +30,17 @@ export default function Home() {
           <Image src={laptop} alt="tech dynasty laptop"></Image>
         </div>
       </div>
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
     </div>
   );
 }
