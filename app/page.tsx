@@ -105,12 +105,12 @@ export default function Home() {
         {/* <div className="w-48 h-48 border rounded-full bg-indigo-900 blur-3xl"></div> */}
       </div>
       {/* Introductory Banner */}
-      <div className="relative grid grid-cols-7 items-center z-10 border-x-2 border-b-2 p-3 shadow-lg">
-        <div className="col-span-4 w-full">
-          <h1 className="text-7xl font-extrabold w-5/6 leading-tight">
+      <div className="relative grid grid-cols-1 md:grid-cols-7 items-center z-10 border-x-2 border-b-2 p-3 shadow-lg">
+        <div className="md:col-span-4">
+          <h1 className="w-5/6 leading-tight lg:text-7xl md:text-5xl text-3xl font-bold md:font-semibold lg:font-extrabold mb-5">
             Step into TechDynasty
           </h1>
-          <p className="text-lg my-3 w-5/6">
+          <p className="w-5/6 md:text-xl text-lg mb-5 md:mb-10">
             Explore the future of electronics with TechDynasty. Discover the
             latest laptops, smartphones, and cutting-edge gadgets that redefine
             innovation and style.
@@ -119,7 +119,7 @@ export default function Home() {
             <Link href="/products">Buy Now</Link>
           </Button>
         </div>
-        <div className="col-span-3">
+        <div className="md:col-span-3">
           <Image src={laptop} alt="tech dynasty laptop"></Image>
         </div>
       </div>
