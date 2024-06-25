@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
 
@@ -26,8 +27,12 @@ const SignUpPage = () => {
       <div className="grid grid-cols-12 items-center gap-y-5">
         <div className="col-span-12 lg:col-span-6">
           <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2">
-            Enter the vast world of Tech products!
+            Join TechDynasty
           </h1>
+          <p className="lg:m-5 md:m-3 m-2">
+            Create your TechDynasty account today to start shopping for the best
+            electronics, receive exclusive deals, and manage your orders easily.
+          </p>
         </div>
         <div className="col-span-12 lg:col-span-5 lg:col-start-8">
           {/* Registration Form */}
@@ -97,14 +102,20 @@ const SignUpPage = () => {
                   Contact Number
                 </label>
               </div>
-              <button className="btn w-full">
+              <Button className="w-full">
                 {/* {loading ? "Claiming..." : "Claim your spot now!"} */}
                 Signup
-              </button>
+              </Button>
             </form>
-            <span>
-              Already have an account?<Link href="/login">Login here.</Link>
-            </span>
+            <div className="mt-9 flex flex-col items-center relative">
+              <span className="w-full border"></span>
+              <span className="bg-white absolute -translate-y-3">
+                Already have an account?
+              </span>
+              <Button className="mt-6">
+                <Link href="/login">Login</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
