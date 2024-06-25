@@ -6,7 +6,7 @@ import { GiCrown } from "react-icons/gi";
 
 const Header: FC = () => {
   return (
-    <div className="p-2 md:p-4 flex items-center justify-between">
+    <div className="p-2 md:p-4 flex items-center justify-between border-x-2 border-t-2 rounded-t mt-2 shadow-lg">
       <div>
         <Link href="/" className="flex gap-3 items-center">
           <figure className="text-3xl">
