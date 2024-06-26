@@ -10,9 +10,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default async function ProductsPage() {
-  const comments = await getProducts();
+  const products = await getProducts();
   return (
     <div>
       <div>
@@ -20,21 +21,18 @@ export default async function ProductsPage() {
           Featured Products
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 w-11/12 mx-auto">
-          {comments.map((comment: any) => (
-            <Card key={comment.id} className="grid grid-rows-3">
+          {products.map((product: any) => (
+            <Card key={product._id} className="grid grid-rows-3">
               <CardHeader className="row-span-1">
-                <CardTitle>{comment.name}</CardTitle>
+                {/* <Image src={product.imageUrl} alt={product.productName} width={60} height={40}/> */}
               </CardHeader>
               <CardContent className="row-span-1">
-                <CardDescription>
-                  {comment.body.length > 60
-                    ? `${comment.body.substring(0, 60)}...`
-                    : comment.body}
-                </CardDescription>
+                <CardTitle>{product.productName}</CardTitle>
+                <CardDescription>{product.shortDescription}</CardDescription>
               </CardContent>
               <CardFooter className="row-span-1">
                 <Button>
-                  <Link href={`/products/${comment.id}`}>Details</Link>
+                  <Link href={`/products/${product._id}`}>Details</Link>
                 </Button>
               </CardFooter>
             </Card>

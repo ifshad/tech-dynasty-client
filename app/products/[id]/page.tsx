@@ -11,9 +11,10 @@ import {
 
 export default async function ProductDetailsPage({ params }: any) {
   const { id } = params;
-  const comment = await getOneProduct(id);
-  const { postId, name, email, body } = comment;
-  console.log(comment);
+  const product = await getOneProduct(id);
+  const { productName, imageUrl, brandName, price, shortDescription, rating } =
+    product;
+  console.log(product);
   return (
     <div className="">
       <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2 text-center">
@@ -21,23 +22,20 @@ export default async function ProductDetailsPage({ params }: any) {
       </h1>
       <Card className="md:w-1/2 mx-auto">
         <CardHeader>
-          <CardTitle>{name}</CardTitle>
-          <CardDescription>{email}</CardDescription>
+          <CardTitle>{productName}</CardTitle>
+          <CardDescription>{brandName}</CardDescription>
         </CardHeader>
         <CardContent>
           <p>
-            <span className="font-bold">Comment: </span>
-            {body}
+            <span className="font-bold">Price: </span>
+            {price}
           </p>
-          <p>
-            <span className="font-bold">PostID: </span>
-            {postId}
-          </p>
+          <p>{shortDescription}</p>
         </CardContent>
         <CardFooter>
           <p>
-            <span className="font-bold">ID: </span>
-            {id}
+            <span className="font-bold">Rating: </span>
+            {rating}
           </p>
         </CardFooter>
       </Card>

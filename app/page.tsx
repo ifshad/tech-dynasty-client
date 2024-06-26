@@ -115,7 +115,7 @@ const whyChooseUs = [
 ];
 
 export default async function Home() {
-  const comments = await getProducts();
+  const products = await getProducts();
   return (
     <div className="relative">
       {/* Background */}
@@ -147,21 +147,19 @@ export default async function Home() {
           Featured Products
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-4/5 mx-auto">
-          {comments.slice(0, 9).map((comment: any) => (
-            <Card key={comment.id} className="grid grid-rows-3">
+          {products.slice(0, 9).map((product:any) => (
+            <Card key={product._id} className="grid grid-rows-3">
               <CardHeader className="row-span-1">
-                <CardTitle>{comment.name}</CardTitle>
+                <CardTitle>{product.productName}</CardTitle>
               </CardHeader>
               <CardContent className="row-span-1">
                 <CardDescription>
-                  {comment.body.length > 60
-                    ? `${comment.body.substring(0, 60)}...`
-                    : comment.body}
+                  {product.shortDescription}
                 </CardDescription>
               </CardContent>
               <CardFooter className="row-span-1">
                 <Button>
-                  <Link href={`/products/${comment.id}`}>Details</Link>
+                  <Link href={`/products/${product._id}`}>Details</Link>
                 </Button>
               </CardFooter>
             </Card>

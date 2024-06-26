@@ -1,10 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
+const axios = require("axios").default;
 
 const SellerPge = () => {
   const [products, setProducts] = useState(null);
-  const handleSubmit = (e: any) => {
+  async function handleSubmit(e: any) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const productName: any = form.get("productName");
@@ -23,10 +24,17 @@ const SellerPge = () => {
       rating,
     };
     setProducts(productName);
-    // console.log(productInfo);
-    // setLoading(true);
+
+    await axios.post("https://tech-dynasty-server.vercel.app/products", {
+      productName: productName,
+      imageUrl: imageUrl,
+      brandName: brandName,
+      price: price,
+      shortDescription: shortDescription,
+      rating: rating,
+    });
     e.target.reset();
-  };
+  }
   return (
     <div className="w-full flex flex-col items-center">
       <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2">
