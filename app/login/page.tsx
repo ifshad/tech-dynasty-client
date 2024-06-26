@@ -33,7 +33,7 @@ const LoginPage = () => {
         </div>
         <div className="col-span-12 lg:col-span-5 lg:col-start-8">
           {/* Registration Form */}
-          <div className="bg-white rounded-xl px-6 py-8 border">
+          <div className="bg-white rounded-xl px-2 md:px-6 py-8 border">
             <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
               <div className="relative">
                 <input

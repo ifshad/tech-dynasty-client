@@ -105,7 +105,7 @@ export default function Home() {
         {/* <div className="w-48 h-48 border rounded-full bg-indigo-900 blur-3xl"></div> */}
       </div>
       {/* Introductory Banner */}
-      <div className="relative grid grid-cols-1 md:grid-cols-7 gap-2 items-center z-10 border-x-2 border-b-2 p-3 shadow-lg">
+      <div className="relative grid grid-cols-1 md:grid-cols-7 gap-2 items-center z-10 border-x-2 border-b-2 p-3 shadow-lg min-h-screen">
         <div className="md:col-span-4">
           <h1 className="md:w-5/6 leading-tight lg:text-7xl md:text-5xl text-3xl font-bold md:font-semibold lg:font-extrabold md:mb-5">
             Step into TechDynasty
