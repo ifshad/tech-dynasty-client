@@ -128,7 +128,7 @@ export default function Home() {
         <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-16">
           Available Brands
         </h1>
-        <Marquee pauseOnHover={true} gradient={true} gradientWidth={100}>
+        <Marquee gradient={true} gradientWidth={100}>
           {brandLogos.map((logo, index) => (
             <Image
               key={index}

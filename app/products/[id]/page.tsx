@@ -19,7 +19,7 @@ export default async function ProductDetailsPage({ params }: any) {
       <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2 text-center">
         Product Detail
       </h1>
-      <Card className="w-3/5 mx-auto">
+      <Card className="w-1/2 mx-auto">
         <CardHeader>
           <CardTitle>{name}</CardTitle>
           <CardDescription>{email}</CardDescription>

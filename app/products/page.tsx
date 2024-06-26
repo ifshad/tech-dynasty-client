@@ -21,18 +21,18 @@ export default async function ProductsPage() {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-4/5 mx-auto">
           {comments.map((comment: any) => (
-            <Card key={comment.id} className="">
-              <CardHeader>
+            <Card key={comment.id} className="grid grid-rows-3">
+              <CardHeader className="row-span-1">
                 <CardTitle>{comment.name}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="row-span-1">
                 <CardDescription>
                   {comment.body.length > 60
                     ? `${comment.body.substring(0, 60)}...`
                     : comment.body}
                 </CardDescription>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="row-span-1">
                 <Button>
                   <Link href={`/products/${comment.id}`}>Details</Link>
                 </Button>

@@ -13,13 +13,13 @@ import {
 
 const Header: FC = () => {
   return (
-    <div className="p-2 md:p-4 flex items-center justify-between border-x-2 border-t-2 rounded-t mt-2 shadow-lg sticky top-0 z-50 backdrop-blur-md">
+    <div className="p-2 md:p-4 flex items-center justify-between border-x-2 border-t-2 rounded-t mt-2 shadow-lg sticky top-0 z-50 backdrop-blur-lg">
       <div>
         <Link href="/" className="flex gap-3 items-center">
           <figure className="text-3xl">
             <GiCrown />
           </figure>
-          <span>TechDynasty</span>
+          <span className="font-bold text-lg">TechDynasty</span>
         </Link>
       </div>
       <div className="hidden md:flex">
