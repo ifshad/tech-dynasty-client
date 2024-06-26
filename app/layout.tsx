@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} min-h-screen container z-10`}>
-        <NextTopLoader showSpinner={true} />
+        <NextTopLoader showSpinner={true} color="red" />
         <Header />
         {children}
         <Footer />
