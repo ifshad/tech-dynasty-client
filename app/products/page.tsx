@@ -19,7 +19,7 @@ export default async function ProductsPage() {
         <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2 text-center">
           Featured Products
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-4/5 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 w-11/12 mx-auto">
           {comments.map((comment: any) => (
             <Card key={comment.id} className="grid grid-rows-3">
               <CardHeader className="row-span-1">

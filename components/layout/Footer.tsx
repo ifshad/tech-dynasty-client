@@ -4,9 +4,9 @@ import { FaFacebook, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 const Footer: FC = () => {
   return (
-    <div className="w-full mt-2">
-      <div className="border border-slate-300 mb-2"></div>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-2">
+    <div className="w-full mt-2 pt-3 md:pt-8">
+      <div className="border border-slate-300 mb-4 md:mb-12"></div>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-4 md:mb-12">
         <div className="col-span-2 md:col-span-3">
           <h1 className="text-2xl font-semibold">TechDynasty</h1>
           <p className="opacity-90 md:w-4/6">
@@ -15,7 +15,7 @@ const Footer: FC = () => {
           </p>
         </div>
         <div className="col-span-1">
-          <h1 className="md:mb-3 font-semibold">Policies</h1>
+          <h1 className="font-semibold">Policies</h1>
           <ul className="opacity-90">
             <li>
               <Link href="/">Terms & Conditions</Link>
@@ -29,7 +29,7 @@ const Footer: FC = () => {
           </ul>
         </div>
         <div className="col-span-1">
-          <h1 className="mb-1 md:mb-3 font-semibold">Social</h1>
+          <h1 className="mb-1 font-semibold">Social</h1>
           <div className="flex gap-5 opacity-90">
             <Link href="/">
               <FaFacebook />

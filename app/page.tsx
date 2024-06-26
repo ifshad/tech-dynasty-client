@@ -2,7 +2,14 @@ import Image from "next/image";
 import laptop from "@/public/Images/dmitry-chernyshov-mP7aPSUm7aE-unsplash-removebg-preview.png";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { FaLock, FaMessage, FaRecycle, FaShield, FaTag, FaTruck, FaUpload } from "react-icons/fa6";
+import {
+  FaLock,
+  FaMessage,
+  FaRecycle,
+  FaShield,
+  FaTag,
+  FaTruck,
+} from "react-icons/fa6";
 import Marquee from "react-fast-marquee";
 import samsung from "@/public/Images/samsung-logo.png";
 import dell from "@/public/Images/dell-logo.png";
@@ -14,6 +21,16 @@ import ms from "@/public/Images/ms-logo.jpg";
 import toshiba from "@/public/Images/toshiba-logo.png";
 import sony from "@/public/Images/vaio-logo.jpg";
 import compaq from "@/public/Images/compaq-logo.png";
+import getProducts from "@/lib/getProducts";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const brandLogos = [
   {
@@ -97,7 +114,8 @@ const whyChooseUs = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const comments = await getProducts();
   return (
     <div className="relative">
       {/* Background */}
@@ -123,9 +141,41 @@ export default function Home() {
           <Image src={laptop} alt="tech dynasty laptop"></Image>
         </div>
       </div>
+      {/* Products showcase */}
+      <div className="mt-5 md:mt-12">
+        <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8">
+          Featured Products
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-4/5 mx-auto">
+          {comments.slice(0, 9).map((comment: any) => (
+            <Card key={comment.id} className="grid grid-rows-3">
+              <CardHeader className="row-span-1">
+                <CardTitle>{comment.name}</CardTitle>
+              </CardHeader>
+              <CardContent className="row-span-1">
+                <CardDescription>
+                  {comment.body.length > 60
+                    ? `${comment.body.substring(0, 60)}...`
+                    : comment.body}
+                </CardDescription>
+              </CardContent>
+              <CardFooter className="row-span-1">
+                <Button>
+                  <Link href={`/products/${comment.id}`}>Details</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+        <div className="w-full flex justify-center mt-4">
+          <Button>
+            <Link href="/products">Show more</Link>
+          </Button>
+        </div>
+      </div>
       {/* Brand Marquee */}
       <div className="py-7 md:py-10 lg:py-16">
-        <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-16">
+        <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8">
           Available Brands
         </h1>
         <Marquee gradient={true} gradientWidth={100}>
@@ -141,13 +191,16 @@ export default function Home() {
         </Marquee>
       </div>
       {/* Why Choose us */}
-      <div className="container py-7 md:py-10 lg:py-16">
-        <h2 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-16 text-body-color">
+      <div className="container py-7 md:py-12 lg:py-16">
+        <h2 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8 text-body-color">
           Why choose us?
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
           {whyChooseUs.map((item, index) => (
-            <div key={index} className="px-10 py-8 rounded-xl bg-white hover:shadow-lg transition duration-500 border">
+            <div
+              key={index}
+              className="px-10 py-8 rounded-xl bg-white hover:shadow-lg transition duration-500 border"
+            >
               <span className="h-16 w-16 bg-primary/10 rounded-full mb-4 inline-flex items-center justify-center">
                 {item.icon}
               </span>
