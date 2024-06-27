@@ -23,11 +23,16 @@ export default async function ProductsPage() {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 w-11/12 mx-auto">
           {products.map((product: any) => (
-            <Card key={product._id} className="grid grid-rows-3">
-              <CardHeader className="row-span-1">
-                {/* <Image src={product.imageUrl} alt={product.productName} width={60} height={40}/> */}
+            <Card key={product._id} className="grid grid-rows-7">
+              <CardHeader className="row-span-5">
+                <Image
+                  src={product?.imageUrl}
+                  alt={product?.productName}
+                  height={250}
+                  width={400}
+                />
               </CardHeader>
-              <CardContent className="row-span-1 flex flex-col">
+              <CardContent className="row-span-2 flex flex-col">
                 <CardTitle>{product.productName}</CardTitle>
                 <CardDescription>{product.shortDescription}</CardDescription>
               </CardContent>
@@ -39,7 +44,9 @@ export default async function ProductsPage() {
                   <Link href={`/}`}>Buy Now</Link>
                 </Button>
                 <Button>
-                  <Link href={`/cart}`}><BiCart /></Link>
+                  <Link href={`/cart}`}>
+                    <BiCart />
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>

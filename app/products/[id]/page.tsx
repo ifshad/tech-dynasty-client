@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BiCart } from "react-icons/bi";
+import Image from "next/image";
 
 export default async function ProductDetailsPage({ params }: any) {
   const { id } = params;
@@ -25,6 +26,12 @@ export default async function ProductDetailsPage({ params }: any) {
       </h1>
       <Card className="md:w-1/2 mx-auto">
         <CardHeader>
+          <Image
+            src={product?.imageUrl}
+            alt={product?.productName}
+            height={550}
+            width={900}
+          />
           <CardTitle>{productName}</CardTitle>
           <CardDescription>{brandName}</CardDescription>
         </CardHeader>
@@ -39,16 +46,16 @@ export default async function ProductDetailsPage({ params }: any) {
             {rating}/10
           </p>
         </CardContent>
-          <CardFooter className="row-span-1 flex justify-end gap-4">
-            <Button>
-              <Link href={`/buy/${id}`}>Buy Now</Link>
-            </Button>
-            <Button>
-              <Link href={`/cart/${id}`}>
-                <BiCart />
-              </Link>
-            </Button>
-          </CardFooter>
+        <CardFooter className="row-span-1 flex justify-end gap-4">
+          <Button>
+            <Link href={`/buy/${id}`}>Buy Now</Link>
+          </Button>
+          <Button>
+            <Link href={`/cart/${id}`}>
+              <BiCart />
+            </Link>
+          </Button>
+        </CardFooter>
       </Card>
     </div>
   );

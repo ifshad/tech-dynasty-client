@@ -45,7 +45,11 @@ const Header: FC = () => {
           <Link href="/products">Buy Now</Link>
         </Button>
         <Button variant="link">
-          <Link href="/seller">Become Seller</Link>
+          {user ? (
+            <Link href="/seller">Become Seller</Link>
+          ) : (
+            <Link href="/login">Become Seller</Link>
+          )}
         </Button>
       </div>
       <div className="hidden md:flex items-center gap-3">
@@ -80,7 +84,15 @@ const Header: FC = () => {
         )}
         <Link href="/cart">
           <figure className="text-3xl">
-            <FaCartPlus />
+            {user ? (
+              <Link href="/seller">
+                <FaCartPlus />
+              </Link>
+            ) : (
+              <Link href="/login">
+                <FaCartPlus />
+              </Link>
+            )}
           </figure>
         </Link>
       </div>
@@ -103,7 +115,11 @@ const Header: FC = () => {
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <Link href="/seller">Become Seller</Link>
+                {user ? (
+                  <Link href="/seller">Become Seller</Link>
+                ) : (
+                  <Link href="/login">Become Seller</Link>
+                )}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
@@ -135,7 +151,15 @@ const Header: FC = () => {
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <Link href="/cart">Cart</Link>
+                {user ? (
+                  <Link href="/seller">
+                    <FaCartPlus /> Cart
+                  </Link>
+                ) : (
+                  <Link href="/login">
+                    <FaCartPlus /> Cart
+                  </Link>
+                )}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
             </DropdownMenuGroup>

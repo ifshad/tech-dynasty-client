@@ -26,15 +26,6 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
   const [error, setError] = useState<string | null>(null);
   console.log(product)
 
-  const {
-    productName,
-    brandName,
-    imageUrl,
-    shortDescription,
-    price,
-    rating,
-  }: any = product;
-
   useEffect(() => {
     async function fetchProduct() {
       try {
@@ -48,7 +39,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
     }
 
     fetchProduct();
-  }, [id]);
+  }, [id, product]);
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -95,7 +86,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="imageUrl"
               required
-              defaultValue={imageUrl}
+              defaultValue={product?.imageUrl}
             />
             <label
               htmlFor="imageUrl"
@@ -112,7 +103,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="productName"
               required
-              defaultValue={productName}
+              defaultValue={product?.productName}
             />
             <label
               htmlFor="productName"
@@ -129,7 +120,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="brandName"
               required
-              defaultValue={brandName}
+              defaultValue={product?.brandName}
             />
             <label
               htmlFor="brandName"
@@ -146,7 +137,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="shortDescription"
               required
-              defaultValue={shortDescription}
+              defaultValue={product?.shortDescription}
             />
             <label
               htmlFor="shortDescription"
@@ -163,7 +154,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="price"
               required
-              defaultValue={price}
+              defaultValue={product?.price}
             />
             <label
               htmlFor="price"
@@ -180,7 +171,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="rating"
               required
-              defaultValue={rating}
+              defaultValue={product?.rating}
             />
             <label
               htmlFor="rating"

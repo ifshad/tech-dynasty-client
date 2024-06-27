@@ -1,10 +1,13 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { useAuthContext } from "@/providers/AuthContext";
 import Link from "next/link";
 import React, { useState } from "react";
 const axios = require("axios").default;
 
-const SellerPge = () => {
+const SellerPage = () => {
+  const { user } = useAuthContext();
+
   async function handleSubmit(e: any) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -145,9 +148,16 @@ const SellerPge = () => {
         </form>
       </div>
       {/* Temporary Output */}
-      <div>To manage your <Link href="/seller-dashboard">products, click here</Link></div>
+      <div>
+        To manage your{" "}
+        {user ? (
+          <Link href="/seller-dashboard">products, click here</Link>
+        ) : (
+          <Link href="/login">products, click here</Link>
+        )}
+      </div>
     </div>
   );
 };
 
-export default SellerPge;
+export default SellerPage;

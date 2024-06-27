@@ -146,15 +146,19 @@ export default async function Home() {
           Featured Products
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-4/5 mx-auto">
-          {products.slice(0, 9).map((product:any) => (
-            <Card key={product._id} className="grid grid-rows-3">
-              <CardHeader className="row-span-1">
-                <CardTitle>{product.productName}</CardTitle>
+          {products.slice(0, 9).map((product: any) => (
+            <Card key={product._id} className="grid grid-rows-7">
+              <CardHeader className="row-span-5">
+                <Image
+                  src={product?.imageUrl}
+                  alt={product?.productName}
+                  height={250}
+                  width={400}
+                />
               </CardHeader>
               <CardContent className="row-span-1">
-                <CardDescription>
-                  {product.shortDescription}
-                </CardDescription>
+                <CardTitle>{product.productName}</CardTitle>
+                <CardDescription>{product.shortDescription}</CardDescription>
               </CardContent>
               <CardFooter className="row-span-1">
                 <Button>
