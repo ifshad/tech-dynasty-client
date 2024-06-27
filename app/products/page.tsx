@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { BiCart } from "react-icons/bi";
 
 export default async function ProductsPage() {
   const products = await getProducts();
@@ -26,13 +27,19 @@ export default async function ProductsPage() {
               <CardHeader className="row-span-1">
                 {/* <Image src={product.imageUrl} alt={product.productName} width={60} height={40}/> */}
               </CardHeader>
-              <CardContent className="row-span-1">
+              <CardContent className="row-span-1 flex flex-col">
                 <CardTitle>{product.productName}</CardTitle>
                 <CardDescription>{product.shortDescription}</CardDescription>
               </CardContent>
-              <CardFooter className="row-span-1">
+              <CardFooter className="row-span-1 flex justify-between">
                 <Button>
                   <Link href={`/products/${product._id}`}>Details</Link>
+                </Button>
+                <Button>
+                  <Link href={`/}`}>Buy Now</Link>
+                </Button>
+                <Button>
+                  <Link href={`/cart}`}><BiCart /></Link>
                 </Button>
               </CardFooter>
             </Card>

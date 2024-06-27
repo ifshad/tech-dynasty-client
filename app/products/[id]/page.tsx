@@ -8,6 +8,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { BiCart } from "react-icons/bi";
 
 export default async function ProductDetailsPage({ params }: any) {
   const { id } = params;
@@ -27,17 +30,25 @@ export default async function ProductDetailsPage({ params }: any) {
         </CardHeader>
         <CardContent>
           <p>
-            <span className="font-bold">Price: </span>
+            <span className="font-bold">Price: $</span>
             {price}
           </p>
           <p>{shortDescription}</p>
-        </CardContent>
-        <CardFooter>
           <p>
             <span className="font-bold">Rating: </span>
-            {rating}
+            {rating}/10
           </p>
-        </CardFooter>
+        </CardContent>
+          <CardFooter className="row-span-1 flex justify-end gap-4">
+            <Button>
+              <Link href={`/buy/${id}`}>Buy Now</Link>
+            </Button>
+            <Button>
+              <Link href={`/cart/${id}`}>
+                <BiCart />
+              </Link>
+            </Button>
+          </CardFooter>
       </Card>
     </div>
   );

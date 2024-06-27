@@ -1,10 +1,55 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import getOneProduct from "@/lib/getOneProduct";
+import axios from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
-const axios = require("axios").default;
+import React, { useEffect, useState } from "react";
 
-const SellerPge = () => {
+interface Product {
+  _id: string;
+  productName: string;
+  shortDescription: string;
+  imageUrl: string;
+  brandName: string;
+  price: number;
+  rating: number;
+}
+
+interface ProductDetailProps {
+  params: any;
+}
+
+export default function UpdateSeller({ params }: ProductDetailProps) {
+  const { id } = params;
+  const [product, setProduct] = useState<Product | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  console.log(product)
+
+  const {
+    productName,
+    brandName,
+    imageUrl,
+    shortDescription,
+    price,
+    rating,
+  }: any = product;
+
+  useEffect(() => {
+    async function fetchProduct() {
+      try {
+        const fetchedProduct = await getOneProduct(id);
+        setProduct(fetchedProduct);
+      } catch (err) {
+        setError("Failed to load product");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchProduct();
+  }, [id]);
+
   async function handleSubmit(e: any) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -24,7 +69,7 @@ const SellerPge = () => {
       rating,
     };
 
-    await axios.post("https://tech-dynasty-server.vercel.app/products", {
+    await axios.put(`https://tech-dynasty-server.vercel.app/products/${id}`, {
       productName: productName,
       imageUrl: imageUrl,
       brandName: brandName,
@@ -37,7 +82,7 @@ const SellerPge = () => {
   return (
     <div className="w-full flex flex-col items-center">
       <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2">
-        Add your product!
+        Edit product!
       </h1>
       {/* Registration Form */}
       <div className="bg-white rounded-xl px-6 py-8 border w-11/12 md:w-4/6 m-4">
@@ -50,6 +95,7 @@ const SellerPge = () => {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="imageUrl"
               required
+              defaultValue={imageUrl}
             />
             <label
               htmlFor="imageUrl"
@@ -66,6 +112,7 @@ const SellerPge = () => {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="productName"
               required
+              defaultValue={productName}
             />
             <label
               htmlFor="productName"
@@ -82,6 +129,7 @@ const SellerPge = () => {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="brandName"
               required
+              defaultValue={brandName}
             />
             <label
               htmlFor="brandName"
@@ -98,6 +146,7 @@ const SellerPge = () => {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="shortDescription"
               required
+              defaultValue={shortDescription}
             />
             <label
               htmlFor="shortDescription"
@@ -114,6 +163,7 @@ const SellerPge = () => {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="price"
               required
+              defaultValue={price}
             />
             <label
               htmlFor="price"
@@ -130,6 +180,7 @@ const SellerPge = () => {
               className="p-3 bg-transparent border border-gray-200 rounded-[.5rem] outline-none peer w-full placeholder-transparent focus:border-primary"
               placeholder="rating"
               required
+              defaultValue={rating}
             />
             <label
               htmlFor="rating"
@@ -145,9 +196,10 @@ const SellerPge = () => {
         </form>
       </div>
       {/* Temporary Output */}
-      <div>To manage your <Link href="/seller-dashboard">products, click here</Link></div>
+      <div>
+        To manage your{" "}
+        <Link href="/seller-dashboard">products, click here</Link>
+      </div>
     </div>
   );
-};
-
-export default SellerPge;
+}
