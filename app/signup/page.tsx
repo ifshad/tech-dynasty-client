@@ -5,8 +5,10 @@ import Link from "next/link";
 import React from "react";
 import { auth } from "@/firebase/firebase.config";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const SignUpPage = () => {
+  const router = useRouter();
   function handleSubmit(e: any) {
     e.preventDefault();
     const form:any = new FormData(e.currentTarget);
@@ -36,6 +38,7 @@ const SignUpPage = () => {
         };
 
         axios.post("https://tech-dynasty-server.vercel.app/users", user);
+        router.push('/login')
       })
       .catch((error) => console.log(error));
     e.target.reset();

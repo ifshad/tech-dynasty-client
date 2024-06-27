@@ -4,8 +4,10 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import Link from "next/link";
 import React from "react";
 import { auth } from "@/firebase/firebase.config";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
+  const router = useRouter();
   const handleSubmit = (e: any) => {
     e.preventDefault();
     const form: any = new FormData(e.currentTarget);
@@ -24,6 +26,7 @@ const LoginPage = () => {
         const user:any = userCredential.user;
         const lastLoginTime:any = user.metadata.lastSignInTime;
         console.log(user)
+        router.push('/')
         // ...
       })
       .catch((error) => {

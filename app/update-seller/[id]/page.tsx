@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import getOneProduct from "@/lib/getOneProduct";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 interface Product {
@@ -24,6 +25,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
   console.log(product)
 
   useEffect(() => {
@@ -69,6 +71,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
       rating: rating,
     });
     e.target.reset();
+    router.push('/seller-dashboard')
   }
   return (
     <div className="w-full flex flex-col items-center">

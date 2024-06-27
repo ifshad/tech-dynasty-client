@@ -2,11 +2,13 @@
 import { Button } from "@/components/ui/button";
 import { useAuthContext } from "@/providers/AuthContext";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 const axios = require("axios").default;
 
 const SellerPage = () => {
   const { user } = useAuthContext();
+  const router = useRouter();
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -36,6 +38,7 @@ const SellerPage = () => {
       rating: rating,
     });
     e.target.reset();
+    router.push('/products')
   }
   return (
     <div className="w-full flex flex-col items-center">
