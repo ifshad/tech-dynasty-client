@@ -3,7 +3,6 @@ import React, { FC } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FaCartPlus } from "react-icons/fa6";
-import { GiCrown } from "react-icons/gi";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,6 +18,8 @@ import { useAuthContext } from "@/providers/AuthContext";
 import { BiLogOut, BiMenu } from "react-icons/bi";
 import { signOut } from "firebase/auth";
 import { auth } from "@/firebase/firebase.config";
+import logo from "@/public/Images/TechDynasty logo.png"
+import Image from "next/image";
 
 const Header: FC = () => {
   const { user, loading } = useAuthContext();
@@ -31,12 +32,10 @@ const Header: FC = () => {
   };
 
   return (
-    <div className="p-2 md:p-4 flex items-center justify-between border-x-2 border-t-2 rounded-t mt-2 shadow-lg sticky top-0 z-50 backdrop-blur-lg">
+    <div className="p-2 flex items-center justify-between border-x-2 border-t-2 rounded-t mt-2 shadow-lg sticky top-0 z-50 backdrop-blur-lg">
       <div>
         <Link href="/" className="flex gap-3 items-center">
-          <figure className="text-3xl">
-            <GiCrown />
-          </figure>
+          <Image src={logo} alt="TechDynasty Logo" height={60}/>
           <span className="font-bold text-lg">TechDynasty</span>
         </Link>
       </div>

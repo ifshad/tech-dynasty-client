@@ -1,5 +1,4 @@
 import Image from "next/image";
-import laptop from "@/public/Images/dmitry-chernyshov-mP7aPSUm7aE-unsplash-removebg-preview.png";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
@@ -30,6 +29,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import laptops from "@/public/Images/laptops_01.png";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import ClientCarousel from "@/components/ClientCarousel";
 
 const brandLogos = [
   {
@@ -137,7 +146,7 @@ export default async function Home() {
           </Button>
         </div>
         <div className="md:col-span-3">
-          <Image src={laptop} alt="tech dynasty laptop"></Image>
+          <ClientCarousel />
         </div>
       </div>
       {/* Products showcase */}
@@ -148,7 +157,7 @@ export default async function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-4/5 mx-auto">
           {products.slice(0, 9).map((product: any) => (
             <Card key={product._id} className="grid grid-rows-7">
-              <CardHeader className="row-span-5">
+              <CardHeader className="row-span-4">
                 <Image
                   src={product?.imageUrl}
                   alt={product?.productName}
@@ -156,9 +165,10 @@ export default async function Home() {
                   width={400}
                 />
               </CardHeader>
-              <CardContent className="row-span-1">
+              <CardContent className="row-span-2">
                 <CardTitle>{product.productName}</CardTitle>
                 <CardDescription>{product.shortDescription}</CardDescription>
+                <CardDescription>Price: ${product.price}</CardDescription>
               </CardContent>
               <CardFooter className="row-span-1">
                 <Button>
@@ -186,7 +196,7 @@ export default async function Home() {
               src={logo.image}
               alt={logo.alt}
               height={100}
-              className="mx-1"
+              width={200}
             ></Image>
           ))}
         </Marquee>

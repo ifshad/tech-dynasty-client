@@ -1,6 +1,8 @@
 import Link from "next/link";
 import React, { FC } from "react";
 import { FaFacebook, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import logo from "@/public/Images/TechDynasty logo.png";
+import Image from "next/image";
 
 const Footer: FC = () => {
   return (
@@ -8,7 +10,10 @@ const Footer: FC = () => {
       <div className="border border-slate-300 mb-4 md:mb-12"></div>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-4 md:mb-12">
         <div className="col-span-2 md:col-span-3">
-          <h1 className="text-2xl font-semibold">TechDynasty</h1>
+          <div className="flex items-center gap-3">
+            <Image src={logo} alt="TechDynasty Logo" height={60} />
+            <h1 className="text-2xl font-semibold">TechDynasty</h1>
+          </div>
           <p className="opacity-90 md:w-4/6">
             Your one-stop shop for the latest and greatest in electronics.
             Discover, shop, and enjoy top-quality products at unbeatable prices.

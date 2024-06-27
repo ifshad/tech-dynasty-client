@@ -89,6 +89,7 @@ export default function SellerDashboard() {
               <CardContent className="row-span-2 flex flex-col">
                 <CardTitle>{product.productName}</CardTitle>
                 <CardDescription>{product.shortDescription}</CardDescription>
+                <CardDescription>{product.price}</CardDescription>
               </CardContent>
               <CardFooter className="row-span-1 flex justify-between">
                 <Button>
