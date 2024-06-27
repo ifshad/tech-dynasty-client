@@ -1,16 +1,19 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import Link from "next/link";
 import React from "react";
+import { auth } from "@/firebase/firebase.config";
+import axios from "axios";
 
 const SignUpPage = () => {
-  const handleSubmit = (e: any) => {
+  function handleSubmit(e: any) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const name = form.get("name");
-    const password = form.get("password");
-    const email = form.get("email");
-    const number = form.get("number");
+    const form:any = new FormData(e.currentTarget);
+    const name: any = form.get("name");
+    const password: any = form.get("password");
+    const email: any = form.get("email");
+    const number: any = form.get("number");
 
     const signupInfo = {
       Name: name,
@@ -20,8 +23,23 @@ const SignUpPage = () => {
     };
     console.log(signupInfo);
     // setLoading(true);
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const creationTime: any = userCredential.user.metadata.creationTime;
+        const user: any = {
+          name: name,
+          email: email,
+          password: password,
+          number: number,
+          creationTime: creationTime,
+        };
+
+        axios.post("https://tech-dynasty-server.vercel.app/users", user);
+      })
+      .catch((error) => console.log(error));
     e.target.reset();
-  };
+  }
   return (
     <div className="container py-14 lg:py-20">
       <div className="grid grid-cols-12 items-center gap-y-5">

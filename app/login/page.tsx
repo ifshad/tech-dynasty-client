@@ -1,14 +1,16 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import Link from "next/link";
 import React from "react";
+import { auth } from "@/firebase/firebase.config";
 
 const LoginPage = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const password = form.get("password");
-    const email = form.get("email");
+    const form: any = new FormData(e.currentTarget);
+    const password: any = form.get("password");
+    const email: any = form.get("email");
 
     const loginInfo = {
       Email: email,
@@ -16,6 +18,18 @@ const LoginPage = () => {
     };
     // console.log(loginInfo);
     // setLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user:any = userCredential.user;
+        const lastLoginTime:any = user.metadata.lastSignInTime;
+        console.log(user)
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
     e.target.reset();
   };
 
