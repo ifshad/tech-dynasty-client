@@ -161,8 +161,9 @@ export default async function Home() {
           {products.slice(0, 9).map((product: any) => (
             <Card
               key={product._id}
-              className="grid grid-rows-7 bg-[#D9D9D9]/15 border-[#D9D9D9]/20 text-white"
+              className="grid grid-rows-7 bg-[#443B5D] border-2 border-transparent text-white relative"
             >
+              <div className="absolute inset-0  rounded-sm bg-gradient-to-tr from-purple-400 via-rose-400 to-yellow-400 filter blur-lg -z-50"></div>
               <CardHeader className="row-span-4">
                 <Image
                   src={product?.imageUrl}

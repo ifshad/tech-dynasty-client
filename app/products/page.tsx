@@ -18,13 +18,17 @@ export default async function ProductsPage() {
   return (
     <div>
       <div>
-        <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2 text-center">
+        <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2 text-center text-white/95">
           Featured Products
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 w-11/12 mx-auto">
           {products.map((product: any) => (
-            <Card key={product._id} className="grid grid-rows-7">
-              <CardHeader className="row-span-5">
+            <Card
+              key={product._id}
+              className="grid grid-rows-7 bg-[#443B5D] border-2 border-transparent text-white relative"
+            >
+              {/* <div className="absolute inset-0  rounded-sm bg-gradient-to-tr from-purple-400 via-rose-400 to-yellow-400 filter blur-lg -z-50"></div> */}
+              <CardHeader className="row-span-4">
                 <Image
                   src={product?.imageUrl}
                   alt={product?.productName}
@@ -32,7 +36,7 @@ export default async function ProductsPage() {
                   width={400}
                 />
               </CardHeader>
-              <CardContent className="row-span-2 flex flex-col">
+              <CardContent className="row-span-2">
                 <CardTitle>{product.productName}</CardTitle>
                 <CardDescription>{product.shortDescription}</CardDescription>
                 <CardDescription>Price: ${product.price}</CardDescription>
