@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import getOneProduct from "@/lib/getOneProduct";
+import { useAuthContext } from "@/providers/AuthContext";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -21,12 +22,13 @@ interface ProductDetailProps {
 }
 
 export default function UpdateSeller({ params }: ProductDetailProps) {
+  const { user } = useAuthContext();
   const { id } = params;
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-  console.log(product)
+  console.log(product);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -71,11 +73,11 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
       rating: rating,
     });
     e.target.reset();
-    router.push('/seller-dashboard')
+    router.push("/seller-dashboard");
   }
   return (
     <div className="w-full flex flex-col items-center">
-      <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2">
+      <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2 text-white/95">
         Edit product!
       </h1>
       {/* Registration Form */}
@@ -93,7 +95,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
             />
             <label
               htmlFor="imageUrl"
-              className="absolute left-3 -top-3 cursor-text  bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-400 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0  transition-all duration-200"
+              className="absolute left-3 -top-3 cursor-text  bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-500 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0  transition-all duration-200"
             >
               Image URL
             </label>
@@ -110,7 +112,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
             />
             <label
               htmlFor="productName"
-              className="absolute left-3 -top-3 cursor-text  bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-400 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0  transition-all duration-200"
+              className="absolute left-3 -top-3 cursor-text  bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-500 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0  transition-all duration-200"
             >
               Product Name
             </label>
@@ -127,7 +129,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
             />
             <label
               htmlFor="brandName"
-              className="absolute left-3 -top-3 cursor-text bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-400 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0 transition-all duration-200"
+              className="absolute left-3 -top-3 cursor-text bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-500 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0 transition-all duration-200"
             >
               Brand Name
             </label>
@@ -144,7 +146,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
             />
             <label
               htmlFor="shortDescription"
-              className="absolute left-3 -top-3 cursor-text bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-400 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0 transition-all duration-200"
+              className="absolute left-3 -top-3 cursor-text bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-500 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0 transition-all duration-200"
             >
               Short Description
             </label>
@@ -161,7 +163,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
             />
             <label
               htmlFor="price"
-              className="absolute left-3 -top-3 cursor-text bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-400 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0 transition-all duration-200"
+              className="absolute left-3 -top-3 cursor-text bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-500 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0 transition-all duration-200"
             >
               Price
             </label>
@@ -178,7 +180,7 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
             />
             <label
               htmlFor="rating"
-              className="absolute left-3 -top-3 cursor-text bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-400 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0 transition-all duration-200"
+              className="absolute left-3 -top-3 cursor-text bg-secondary-color px-1 text-base lg:peer-focus:text-base md:peer-focus:text-base peer-focus:text-sm peer-placeholder-shown:text-slate-500 peer-placeholder-shown:translate-y-6 peer-placeholder-shown:font-medium peer-placeholder-shown:bg-white peer-focus:bg-white  peer-focus:-translate-y-0 transition-all duration-200"
             >
               Rating
             </label>
@@ -190,9 +192,20 @@ export default function UpdateSeller({ params }: ProductDetailProps) {
         </form>
       </div>
       {/* Temporary Output */}
-      <div>
-        To manage your{" "}
-        <Link href="/seller-dashboard">products, click here</Link>
+      <div className="text-white/85">
+        To manage your products,{" "}
+        {user ? (
+          <Link
+            className="hover:border-b hover:border-b-white"
+            href="/seller-dashboard"
+          >
+            click here
+          </Link>
+        ) : (
+          <Link className="hover:border-b hover:border-b-white" href="/login">
+            click here
+          </Link>
+        )}
       </div>
     </div>
   );
