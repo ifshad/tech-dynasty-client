@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} min-h-screen container z-10`}>
+      <body className={`${poppins.className} min-h-screen container z-10 bg-gradient-to-b from-[#1E1A2A] to-[#443B5D]`}>
         <NextTopLoader showSpinner={true} color="red" />
         <AuthProvider>
           <Header />

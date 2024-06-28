@@ -131,12 +131,12 @@ export default async function Home() {
         {/* <div className="w-48 h-48 border rounded-full bg-indigo-900 blur-3xl"></div> */}
       </div>
       {/* Introductory Banner */}
-      <div className="relative grid grid-cols-1 md:grid-cols-7 gap-2 items-center z-10 border-x-2 border-b-2 p-3 shadow-lg min-h-screen">
+      <div className="relative grid grid-cols-1 md:grid-cols-7 gap-2 items-center z-10 border-x-2 border-b-2 p-3 shadow-lg min-h-screen bg-[#D9D9D9] bg-opacity-[13.5%] filter ">
         <div className="md:col-span-4">
-          <h1 className="md:w-5/6 leading-tight lg:text-7xl md:text-5xl text-3xl font-bold md:font-semibold lg:font-extrabold md:mb-5">
+          <h1 className="md:w-5/6 leading-tight lg:text-7xl md:text-5xl text-3xl font-bold md:font-semibold lg:font-extrabold md:mb-5 bg-gradient-to-br from-[#1140E6] via-[#0B86E4] to-[#00FFE0] text-transparent bg-clip-text">
             Step into TechDynasty
           </h1>
-          <p className="md:w-5/6 md:text-xl text-lg mb-2 md:mb-6">
+          <p className="md:w-5/6 md:text-xl text-lg mb-2 md:mb-6 text-slate-200">
             Explore the future of electronics with TechDynasty. Discover the
             latest laptops, smartphones, and cutting-edge gadgets that redefine
             innovation and style.
@@ -156,7 +156,7 @@ export default async function Home() {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-4/5 mx-auto">
           {products.slice(0, 9).map((product: any) => (
-            <Card key={product._id} className="grid grid-rows-7">
+            <Card key={product._id} className="grid grid-rows-7 bg-[#D9D9D9] bg-opacity-[13.5%]">
               <CardHeader className="row-span-4">
                 <Image
                   src={product?.imageUrl}
@@ -210,7 +210,7 @@ export default async function Home() {
           {whyChooseUs.map((item, index) => (
             <div
               key={index}
-              className="px-10 py-8 rounded-xl bg-white hover:shadow-lg transition duration-500 border"
+              className="px-10 py-8 rounded-xl bg-[#D9D9D9] bg-opacity-[13.5%] hover:shadow-lg transition duration-500 border"
             >
               <span className="h-16 w-16 bg-primary/10 rounded-full mb-4 inline-flex items-center justify-center">
                 {item.icon}

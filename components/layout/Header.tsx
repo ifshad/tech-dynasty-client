@@ -32,7 +32,7 @@ const Header: FC = () => {
   };
 
   return (
-    <div className="p-2 flex items-center justify-between border-x-2 border-t-2 rounded-t mt-2 shadow-lg sticky top-0 z-50 backdrop-blur-lg">
+    <div className="p-2 flex items-center justify-between border-x-2 border-t-2 rounded-t mt-2 shadow-lg sticky top-0 z-50 backdrop-blur-lg bg-[#D9D9D9] bg-opacity-[13.5%] text-white">
       <div>
         <Link href="/" className="flex gap-3 items-center">
           <Image src={logo} alt="TechDynasty Logo" height={60}/>
@@ -40,10 +40,10 @@ const Header: FC = () => {
         </Link>
       </div>
       <div className="hidden md:flex">
-        <Button variant="link">
+        <Button variant="link" className="text-white">
           <Link href="/products">Buy Now</Link>
         </Button>
-        <Button variant="link">
+        <Button variant="link" className="text-white">
           {user ? (
             <Link href="/seller">Become Seller</Link>
           ) : (
