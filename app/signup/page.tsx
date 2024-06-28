@@ -46,7 +46,8 @@ const SignUpPage = () => {
   return (
     <div className="container py-14 lg:py-20">
       <div className="grid grid-cols-12 items-center gap-y-5">
-        <div className="col-span-12 lg:col-span-6">
+        <div className="col-span-12 lg:col-span-6 relative">
+          {/* <div className="absolute inset-0 bg-[#D9D9D9] filter blur"></div> */}
           {/* Registration Form */}
           <div className="bg-[#D9D9D9] rounded-xl px-2 md:px-6 py-8 border">
             <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
