@@ -132,9 +132,9 @@ export default async function Home() {
       </div>
       {/* Introductory Banner */}
       <div className="relative grid grid-cols-1 md:grid-cols-7 gap-2 items-center z-10 border-x-2 border-b-2 p-3 border-[#D9D9D9]/20 shadow-lg min-h-screen bg-[#D9D9D9] bg-opacity-[13.5%] filter ">
-        <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply left-48 -z-50 bg-red-600 animation-delay-2000 "></div>
-        <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply left-96 -z-50 bg-purple-600"></div>
-        <div className="absolute w-72 h-72 animate-blob animation-delay-4000 rounded-full blur-xl opacity-50 filter mix-blend-multiply left-72 bottom-10 -z-50 bg-blue-600"></div>
+        <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply  right-24 -z-50 bg-rose-600 animation-delay-2000"></div>
+        <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply  right-72 -z-50 bg-purple-600 animation-delay-6000"></div>
+        <div className="absolute w-72 h-72 animate-blob animation-delay-4000 rounded-full blur-xl opacity-50 filter mix-blend-multiply  right-48 bottom-24 -z-50 bg-blue-600"></div>
         <div className="md:col-span-4">
           <h1 className="md:w-5/6 leading-tight lg:text-7xl md:text-5xl text-3xl font-bold md:font-semibold lg:font-extrabold md:mb-5 bg-gradient-to-br from-[#1140E6] via-[#0B86E4] to-[#00FFE0] text-transparent bg-clip-text">
             Step into TechDynasty
@@ -152,8 +152,9 @@ export default async function Home() {
           <ClientCarousel />
         </div>
       </div>
+      <div className="h-12 w-full bg-gradient-to-r from-[#1140E6] via-[#147FD4] to-[#1F3BCE] mt-8 blur-3xl"></div>
       {/* Products showcase */}
-      <div className="mt-5 md:mt-12">
+      <div className="mt-5 md:mt-8">
         <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8 bg-gradient-to-br from-[#1140E6] via-[#0B86E4] to-[#00FFE0] text-transparent bg-clip-text">
           Featured Products
         </h1>
@@ -197,7 +198,7 @@ export default async function Home() {
           Available Brands
         </h1>
         <div className="relative">
-          <div className="bg-[#D9D9D9]/30 filter blur-2xl absolute inset-0"></div>
+          <div className="bg-[#D9D9D9]/30 filter blur-3xl absolute inset-0"></div>
           <Marquee gradientWidth={100}>
             {brandLogos.map((logo, index) => (
               <Image
@@ -235,6 +236,7 @@ export default async function Home() {
           ))}
         </div>
       </div>
+      <div className="bg-[#1140E6] w-full h-4 blur-3xl"></div>
     </div>
   );
 }
