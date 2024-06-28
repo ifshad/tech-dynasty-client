@@ -158,13 +158,13 @@ export default async function Home() {
         <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8 bg-gradient-to-br from-[#1140E6] via-[#0B86E4] to-[#00FFE0] text-transparent bg-clip-text">
           Featured Products
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-4/5 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-12 w-4/5 mx-auto">
           {products.slice(0, 9).map((product: any) => (
             <Card
               key={product._id}
               className="grid grid-rows-7 bg-[#443B5D] border-2 border-transparent text-white relative group"
             >
-              <div className="absolute rounded-sm bg-gradient-to-tr from-blue-600 via-rose-600 to-yellow-600 filter blur -z-50 -inset-1 opacity-70 group-hover:opacity-95 transition duration-1000 group-hover:duration-700 animate-tilt"></div>
+              <div className="absolute rounded-sm bg-gradient-to-tr from-blue-600 via-rose-600 to-yellow-600 filter blur -z-50 -inset-1 opacity-70 group-hover:opacity-100 transition duration-1200 group-hover:duration-1000 animate-tilt"></div>
               <CardHeader className="row-span-4">
                 <Image
                   src={product?.imageUrl}

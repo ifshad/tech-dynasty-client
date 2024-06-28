@@ -131,7 +131,10 @@ const SignUpPage = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-12 lg:col-span-6">
+        <div className="col-span-12 lg:col-span-6 relative">
+          <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply  right-24 -z-50 bg-rose-600 animation-delay-2000"></div>
+          <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply  right-72 -z-50 bg-purple-600 animation-delay-6000"></div>
+          <div className="absolute w-72 h-72 animate-blob animation-delay-4000 rounded-full blur-xl opacity-50 filter mix-blend-multiply  right-48 bottom-24 -z-50 bg-blue-600"></div>
           <h1 className="lg:text-6xl md:text-4xl text-3xl font-semibold lg:m-5 md:m-3 m-2 text-[#D9D9D9]/90">
             Join TechDynasty
           </h1>
