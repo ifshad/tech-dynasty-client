@@ -126,15 +126,11 @@ export default async function Home() {
   const products = await getProducts();
   return (
     <div className="relative">
-      {/* Background */}
-      <div className="absolute grid grid-cols-7 z-0">
-        {/* <div className="w-48 h-48 border rounded-full bg-indigo-900 blur-3xl"></div> */}
-      </div>
       {/* Introductory Banner */}
       <div className="relative grid grid-cols-1 md:grid-cols-7 gap-2 items-center z-10 border-x-2 border-b-2 p-3 border-[#D9D9D9]/20 shadow-lg min-h-screen bg-[#D9D9D9] bg-opacity-[13.5%] filter ">
-        <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply  right-24 -z-50 bg-rose-600 animation-delay-2000"></div>
-        <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply  right-72 -z-50 bg-purple-600"></div>
-        <div className="absolute w-72 h-72 animate-blob animation-delay-4000 rounded-full blur-xl opacity-50 filter mix-blend-multiply  right-48 bottom-24 -z-50 bg-blue-600"></div>
+        <div className="absolute w-40 md:w-72 h-40 md:h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply right-4 md:right-24 -z-50 bg-rose-600 animation-delay-2000"></div>
+        <div className="absolute w-40 md:w-72 h-40 md:h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply right-16 md:right-72 -z-50 bg-purple-600"></div>
+        <div className="absolute w-40 md:w-72 h-40 md:h-72 animate-blob animation-delay-4000 rounded-full blur-xl opacity-50 filter mix-blend-multiply right-10 md:right-48 bottom-24 -z-50 bg-blue-600"></div>
         <div className="md:col-span-4">
           <h1 className="md:w-5/6 leading-tight lg:text-7xl md:text-5xl text-3xl font-bold md:font-semibold lg:font-extrabold md:mb-5 bg-gradient-to-br from-[#1140E6] via-[#0B86E4] to-[#00FFE0] text-transparent bg-clip-text">
             Step into TechDynasty
@@ -158,7 +154,7 @@ export default async function Home() {
         <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8 bg-gradient-to-br from-[#1140E6] via-[#0B86E4] to-[#00FFE0] text-transparent bg-clip-text">
           Featured Products
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-12 w-4/5 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-12 w-4/5 mx-auto">
           {products.slice(0, 9).map((product: any) => (
             <Card
               key={product._id}

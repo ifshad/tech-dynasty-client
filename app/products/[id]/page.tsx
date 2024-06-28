@@ -17,7 +17,7 @@ export default async function ProductDetailsPage({ params }: any) {
         Product Details
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 md:space-x-5 relative">
-        <div className="absolute bottom-4 md:left-[600px]">
+        <div className="absolute -bottom-4 md:bottom-4 md:left-[600px]">
           <span className="bg-[#00FFE0] px-3 py-1 rounded-full text-gray-800">{rating}/10</span>
         </div>
         <div className="bg-[#D9D9D9] rounded-md p-2">
