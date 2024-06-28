@@ -73,25 +73,43 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "blob" : {
-          "0%" : {
-            transform : "translate(0px, 0px) scale(1)",
+        blob: {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1)",
           },
-          "33%" : {
-            transform : "translate(30px, -50px) scale(1.4)",
+          "33%": {
+            transform: "translate(30px, -50px) scale(1.2)",
           },
-          "66%" : {
-            transform : "translate(-20px, 20px) scale(0.8)",
+          "66%": {
+            transform: "translate(-20px, 20px) scale(0.8)",
           },
-          "100%" : {
-            transform : "translate(0px, 0px) scale(1)",
+          "100%": {
+            transform: "translate(0px, 0px) scale(1)",
           },
-        }
+        },
+        tilt: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "25%": {
+            transform: "rotate(1deg)",
+          },
+          "50%": {
+            transform: "rotate(0deg)",
+          },
+          "75%": {
+            transform: "rotate(-1deg)",
+          },
+          "100%": {
+            transform: "rotate(0deg)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "blob" : "blob 4s infinite",
+        blob: "blob 6s infinite",
+        tilt: "tilt 10s infinite linear",
       },
     },
   },

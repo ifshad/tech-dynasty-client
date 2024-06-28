@@ -132,9 +132,9 @@ export default async function Home() {
       </div>
       {/* Introductory Banner */}
       <div className="relative grid grid-cols-1 md:grid-cols-7 gap-2 items-center z-10 border-x-2 border-b-2 p-3 border-[#D9D9D9]/20 shadow-lg min-h-screen bg-[#D9D9D9] bg-opacity-[13.5%] filter ">
-        <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply left-48 -z-50 bg-rose-400"></div>
-        <div className="absolute w-72 h-72 animate-blob animation-delay-2000 rounded-full blur-xl opacity-50 filter mix-blend-multiply left-96 -z-50 bg-yellow-400"></div>
-        <div className="absolute w-72 h-72 animate-blob animation-delay-4000 rounded-full blur-xl opacity-50 filter mix-blend-multiply left-72 bottom-10 -z-50 bg-purple-400"></div>
+        <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply left-48 -z-50 bg-red-600 animation-delay-2000 "></div>
+        <div className="absolute w-72 h-72 animate-blob rounded-full blur-xl opacity-50 filter mix-blend-multiply left-96 -z-50 bg-purple-600"></div>
+        <div className="absolute w-72 h-72 animate-blob animation-delay-4000 rounded-full blur-xl opacity-50 filter mix-blend-multiply left-72 bottom-10 -z-50 bg-blue-600"></div>
         <div className="md:col-span-4">
           <h1 className="md:w-5/6 leading-tight lg:text-7xl md:text-5xl text-3xl font-bold md:font-semibold lg:font-extrabold md:mb-5 bg-gradient-to-br from-[#1140E6] via-[#0B86E4] to-[#00FFE0] text-transparent bg-clip-text">
             Step into TechDynasty
@@ -161,9 +161,9 @@ export default async function Home() {
           {products.slice(0, 9).map((product: any) => (
             <Card
               key={product._id}
-              className="grid grid-rows-7 bg-[#443B5D] border-2 border-transparent text-white relative"
+              className="grid grid-rows-7 bg-[#443B5D] border-2 border-transparent text-white relative group"
             >
-              <div className="absolute inset-0  rounded-sm bg-gradient-to-tr from-purple-400 via-rose-400 to-yellow-400 filter blur-lg -z-50"></div>
+              <div className="absolute rounded-sm bg-gradient-to-tr from-blue-600 via-rose-600 to-yellow-600 filter blur-lg -z-50 -inset-1 opacity-70 group-hover:opacity-95 transition duration-1000 group-hover:duration-700 animate-tilt"></div>
               <CardHeader className="row-span-4">
                 <Image
                   src={product?.imageUrl}
