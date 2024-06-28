@@ -2,7 +2,11 @@
 import React, { FC } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { FaCartPlus } from "react-icons/fa6";
+import {
+  FaBagShopping,
+  FaCartPlus,
+  FaCircleDollarToSlot,
+} from "react-icons/fa6";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,10 +19,10 @@ import {
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 import { useAuthContext } from "@/providers/AuthContext";
-import { BiLogOut, BiMenu } from "react-icons/bi";
+import { BiLogIn, BiLogOut, BiMenu } from "react-icons/bi";
 import { signOut } from "firebase/auth";
 import { auth } from "@/firebase/firebase.config";
-import logo from "@/public/Images/TechDynasty logo.png"
+import logo from "@/public/Images/TechDynasty logo.png";
 import Image from "next/image";
 
 const Header: FC = () => {
@@ -35,7 +39,7 @@ const Header: FC = () => {
     <div className="p-2 flex items-center justify-between border-x-2 border-t-2 rounded-t border-[#D9D9D9]/20 mt-2 shadow-lg sticky top-0 z-50 backdrop-blur-lg bg-[#D9D9D9] bg-opacity-[13.5%] text-white">
       <div>
         <Link href="/" className="flex gap-3 items-center">
-          <Image src={logo} alt="TechDynasty Logo" height={60}/>
+          <Image src={logo} alt="TechDynasty Logo" height={60} />
           <span className="font-bold text-lg">TechDynasty</span>
         </Link>
       </div>
@@ -55,12 +59,12 @@ const Header: FC = () => {
         {user ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline">{user.email}</Button>
+              <Button className="text-white bg-[#1C2349]">{user.email}</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="end"
               sideOffset={8}
-              className="absolute right-0 w-52 bg-white p-3 border rounded-sm shadow-md"
+              className="w-52 text-white bg-[#1C2349] rounded-sm shadow-md"
             >
               <DropdownMenuGroup>
                 <DropdownMenuItem>
@@ -98,69 +102,67 @@ const Header: FC = () => {
       <div className="md:hidden relative">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button>
-              <BiMenu />
-            </Button>
+            {user ? (
+              <Button className="rounded-full">{user.email?.slice(0,1)}</Button>
+            ) : (
+              <Button>
+                <BiMenu />
+              </Button>
+            )}
           </DropdownMenuTrigger>
           <DropdownMenuContent
             align="end"
             sideOffset={8}
-            className="absolute right-0 w-52 bg-white p-3 border rounded-sm shadow-md"
+            className="absolute right-0 w-52 bg-[#1C2349] p-3 border rounded-sm shadow-md"
           >
             <DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <Link href="/products">Buy Now</Link>
+                <Link className="flex items-center gap-3" href="/products">
+                  <FaBagShopping /> Buy Now
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
                 {user ? (
-                  <Link href="/seller">Become Seller</Link>
+                  <Link className="flex items-center gap-3" href="/seller">
+                    <FaCircleDollarToSlot /> Become Seller
+                  </Link>
                 ) : (
-                  <Link href="/login">Become Seller</Link>
+                  <Link className="flex items-center gap-3" href="/login">
+                    <FaCircleDollarToSlot /> Become Seller
+                  </Link>
                 )}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
                 {user ? (
-                  <DropdownMenuSub>
-                    <DropdownMenuSubTrigger>
-                      {user.email}
-                    </DropdownMenuSubTrigger>
-                    <DropdownMenuSubContent>
-                      <DropdownMenuGroup>
-                        <DropdownMenuItem>
-                          <Button
-                            variant="ghost"
-                            onClick={handleLogOut}
-                            className="w-full gap-3 justify-start"
-                          >
-                            <BiLogOut /> Logout
-                          </Button>
-                        </DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                      </DropdownMenuGroup>
-                    </DropdownMenuSubContent>
-                  </DropdownMenuSub>
-                ) : (
-                  <Button>
-                    <Link href="/login">Login</Link>
-                  </Button>
-                )}
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                {user ? (
-                  <Link href="/seller">
+                  <Link className="flex gap-3 items-center" href="/cart">
                     <FaCartPlus /> Cart
                   </Link>
                 ) : (
-                  <Link href="/login">
+                  <Link className="flex gap-3 items-center" href="/login">
                     <FaCartPlus /> Cart
                   </Link>
                 )}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
+              {user ? (
+                <DropdownMenuItem>
+                  <button
+                    onClick={handleLogOut}
+                    className="flex gap-3 items-center"
+                  >
+                    <BiLogOut /> Logout
+                  </button>
+                </DropdownMenuItem>
+              ) : (
+                <DropdownMenuItem>
+                  <Link href="/login" className="flex gap-3 items-center">
+                    <BiLogIn /> Login
+                  </Link>
+                </DropdownMenuItem>
+              )}
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
