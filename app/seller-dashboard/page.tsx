@@ -54,7 +54,7 @@ export default function SellerDashboard() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col space-y-3">
+      <div className="flex flex-col space-y-3 w-full min-h-screen items-center justify-center">
         <Skeleton className="h-[125px] w-[250px] rounded-xl" />
         <div className="space-y-2">
           <Skeleton className="h-4 w-[250px]" />
@@ -77,7 +77,11 @@ export default function SellerDashboard() {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 w-11/12 mx-auto">
           {products.map((product: any) => (
-            <Card key={product._id} className="grid grid-rows-7">
+            <Card
+              key={product._id}
+              className="grid grid-rows-7 bg-[#443B5D] border-2 border-transparent text-white relative shadow shadow-white/20 hover:shadow-md hover:shadow-white/40"
+            >
+              {/* <div className="absolute inset-0  rounded-sm bg-gradient-to-tr from-purple-400 via-rose-400 to-yellow-400 filter blur-lg -z-50"></div> */}
               <CardHeader className="row-span-4">
                 <Image
                   src={product?.imageUrl}
@@ -86,10 +90,10 @@ export default function SellerDashboard() {
                   width={400}
                 />
               </CardHeader>
-              <CardContent className="row-span-2 flex flex-col">
+              <CardContent className="row-span-2">
                 <CardTitle>{product.productName}</CardTitle>
                 <CardDescription>{product.shortDescription}</CardDescription>
-                <CardDescription>{product.price}</CardDescription>
+                <CardDescription>Price: ${product.price}</CardDescription>
               </CardContent>
               <CardFooter className="row-span-1 flex justify-between">
                 <Button>

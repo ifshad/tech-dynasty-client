@@ -12,6 +12,12 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { BiCart } from "react-icons/bi";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default async function ProductsPage() {
   const products = await getProducts();
@@ -25,7 +31,7 @@ export default async function ProductsPage() {
           {products.map((product: any) => (
             <Card
               key={product._id}
-              className="grid grid-rows-7 bg-[#443B5D] border-2 border-transparent text-white relative"
+              className="grid grid-rows-7 bg-[#443B5D] border-2 border-transparent text-white relative shadow shadow-white/20 hover:shadow-md hover:shadow-white/40"
             >
               {/* <div className="absolute inset-0  rounded-sm bg-gradient-to-tr from-purple-400 via-rose-400 to-yellow-400 filter blur-lg -z-50"></div> */}
               <CardHeader className="row-span-4">
@@ -48,11 +54,20 @@ export default async function ProductsPage() {
                 <Button>
                   <Link href={`/}`}>Buy Now</Link>
                 </Button>
-                <Button>
-                  <Link href={`/cart}`}>
-                    <BiCart />
-                  </Link>
-                </Button>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button>
+                        <Link href={`/cart}`}>
+                          <BiCart />
+                        </Link>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Cart</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </CardFooter>
             </Card>
           ))}

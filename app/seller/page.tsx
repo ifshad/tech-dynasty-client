@@ -151,12 +151,12 @@ const SellerPage = () => {
         </form>
       </div>
       {/* Temporary Output */}
-      <div>
-        To manage your{" "}
+      <div className="text-white/85">
+        To manage your products,{" "}
         {user ? (
-          <Link href="/seller-dashboard">products, click here</Link>
+          <Link className="hover:border-b hover:border-b-white" href="/seller-dashboard">click here</Link>
         ) : (
-          <Link href="/login">products, click here</Link>
+          <Link className="hover:border-b hover:border-b-white" href="/login">click here</Link>
         )}
       </div>
     </div>
