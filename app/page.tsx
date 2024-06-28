@@ -164,7 +164,7 @@ export default async function Home() {
               key={product._id}
               className="grid grid-rows-7 bg-[#443B5D] border-2 border-transparent text-white relative group"
             >
-              <div className="absolute rounded-sm bg-gradient-to-tr from-blue-600 via-rose-600 to-yellow-600 filter blur-lg -z-50 -inset-1 opacity-70 group-hover:opacity-95 transition duration-1000 group-hover:duration-700 animate-tilt"></div>
+              <div className="absolute rounded-sm bg-gradient-to-tr from-blue-600 via-rose-600 to-yellow-600 filter blur -z-50 -inset-1 opacity-70 group-hover:opacity-95 transition duration-1000 group-hover:duration-700 animate-tilt"></div>
               <CardHeader className="row-span-4">
                 <Image
                   src={product?.imageUrl}
