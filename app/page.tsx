@@ -131,7 +131,7 @@ export default async function Home() {
         {/* <div className="w-48 h-48 border rounded-full bg-indigo-900 blur-3xl"></div> */}
       </div>
       {/* Introductory Banner */}
-      <div className="relative grid grid-cols-1 md:grid-cols-7 gap-2 items-center z-10 border-x-2 border-b-2 p-3 shadow-lg min-h-screen bg-[#D9D9D9] bg-opacity-[13.5%] filter ">
+      <div className="relative grid grid-cols-1 md:grid-cols-7 gap-2 items-center z-10 border-x-2 border-b-2 p-3 border-[#D9D9D9]/20 shadow-lg min-h-screen bg-[#D9D9D9] bg-opacity-[13.5%] filter ">
         <div className="md:col-span-4">
           <h1 className="md:w-5/6 leading-tight lg:text-7xl md:text-5xl text-3xl font-bold md:font-semibold lg:font-extrabold md:mb-5 bg-gradient-to-br from-[#1140E6] via-[#0B86E4] to-[#00FFE0] text-transparent bg-clip-text">
             Step into TechDynasty
@@ -151,12 +151,15 @@ export default async function Home() {
       </div>
       {/* Products showcase */}
       <div className="mt-5 md:mt-12">
-        <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8">
+        <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8 bg-gradient-to-br from-[#1140E6] via-[#0B86E4] to-[#00FFE0] text-transparent bg-clip-text">
           Featured Products
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-4/5 mx-auto">
           {products.slice(0, 9).map((product: any) => (
-            <Card key={product._id} className="grid grid-rows-7 bg-[#D9D9D9] bg-opacity-[13.5%]">
+            <Card
+              key={product._id}
+              className="grid grid-rows-7 bg-[#D9D9D9]/15 border-[#D9D9D9]/20 text-white"
+            >
               <CardHeader className="row-span-4">
                 <Image
                   src={product?.imageUrl}
@@ -185,40 +188,43 @@ export default async function Home() {
         </div>
       </div>
       {/* Brand Marquee */}
-      <div className="py-7 md:py-10 lg:py-16">
-        <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8">
+      <div className="my-3 md:my-10">
+        <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8 text-white/90">
           Available Brands
         </h1>
-        <Marquee gradient={true} gradientWidth={100}>
-          {brandLogos.map((logo, index) => (
-            <Image
-              key={index}
-              src={logo.image}
-              alt={logo.alt}
-              height={100}
-              width={200}
-            ></Image>
-          ))}
-        </Marquee>
+        <div className="relative">
+          <div className="bg-[#D9D9D9]/30 filter blur-2xl absolute inset-0"></div>
+          <Marquee gradientWidth={100}>
+            {brandLogos.map((logo, index) => (
+              <Image
+                key={index}
+                src={logo.image}
+                alt={logo.alt}
+                height={100}
+                width={200}
+              ></Image>
+            ))}
+          </Marquee>
+        </div>
       </div>
       {/* Why Choose us */}
       <div className="container py-7 md:py-12 lg:py-16">
-        <h2 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8 text-body-color">
+        <h2 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-8 text-white">
           Why choose us?
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
           {whyChooseUs.map((item, index) => (
             <div
               key={index}
-              className="px-10 py-8 rounded-xl bg-[#D9D9D9] bg-opacity-[13.5%] hover:shadow-lg transition duration-500 border"
+              className="px-10 py-8 rounded-xl bg-[#D9D9D9] bg-opacity-[13.5%] hover:shadow-xl transition duration-500 border border-white/10"
             >
-              <span className="h-16 w-16 bg-primary/10 rounded-full mb-4 inline-flex items-center justify-center">
+              <span className="h-16 w-16 text-white bg-white/10 rounded-full mb-4 inline-flex items-center justify-center">
                 {item.icon}
               </span>
-              <h3 className="text-lg md:text-xl font-semibold mb-2">
+              <h3 className="text-lg md:text-xl font-semibold mb-2 text-[#00FFE0]">
                 {item.title}
               </h3>
-              <p className="opacity-80 text-base md:text-lg">
+              <p className="opacity-80 text-base md:text-lg text-white/75">
                 {item.description}
               </p>
             </div>

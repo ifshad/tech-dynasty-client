@@ -32,7 +32,7 @@ const Header: FC = () => {
   };
 
   return (
-    <div className="p-2 flex items-center justify-between border-x-2 border-t-2 rounded-t mt-2 shadow-lg sticky top-0 z-50 backdrop-blur-lg bg-[#D9D9D9] bg-opacity-[13.5%] text-white">
+    <div className="p-2 flex items-center justify-between border-x-2 border-t-2 rounded-t border-[#D9D9D9]/20 mt-2 shadow-lg sticky top-0 z-50 backdrop-blur-lg bg-[#D9D9D9] bg-opacity-[13.5%] text-white">
       <div>
         <Link href="/" className="flex gap-3 items-center">
           <Image src={logo} alt="TechDynasty Logo" height={60}/>
