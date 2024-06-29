@@ -23,6 +23,7 @@ import axios from "axios";
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import { FileWarningIcon } from "lucide-react";
+import Swal from "sweetalert2";
 
 interface Product {
   _id: string;
@@ -67,7 +68,25 @@ export default function SellerDashboard() {
 
   const handleDeleteClick = (_id: any) => {
     console.log(_id);
-    axios.delete(`https://tech-dynasty-server.vercel.app/products/${_id}`);
+
+    Swal.fire({
+      title: "Are you sure to delete?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`https://tech-dynasty-server.vercel.app/products/${_id}`);
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
+    });
   };
 
   return (
