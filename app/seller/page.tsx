@@ -4,11 +4,24 @@ import { useAuthContext } from "@/providers/AuthContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 const axios = require("axios").default;
 
 const SellerPage = () => {
   const { user } = useAuthContext();
   const router = useRouter();
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -38,7 +51,10 @@ const SellerPage = () => {
       rating: rating,
     });
     e.target.reset();
-    router.push('/products')
+    Toast.fire({
+      icon: "success",
+      title: "Product added successfully",
+    });
   }
   return (
     <div className="w-full flex flex-col items-center">
@@ -154,9 +170,16 @@ const SellerPage = () => {
       <div className="text-white/85">
         To manage your products,{" "}
         {user ? (
-          <Link className="hover:border-b hover:border-b-white" href="/seller-dashboard">click here</Link>
+          <Link
+            className="hover:border-b hover:border-b-white"
+            href="/seller-dashboard"
+          >
+            click here
+          </Link>
         ) : (
-          <Link className="hover:border-b hover:border-b-white" href="/login">click here</Link>
+          <Link className="hover:border-b hover:border-b-white" href="/login">
+            click here
+          </Link>
         )}
       </div>
     </div>

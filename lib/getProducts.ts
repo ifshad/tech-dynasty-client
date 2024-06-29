@@ -13,4 +13,4 @@ export default async function getProducts() {
   }
 }
 
-export const revalidate = 1;
+export const revalidate = 0;
