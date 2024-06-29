@@ -31,4 +31,6 @@ export default async function getOneProduct(id: string): Promise<Product> {
     console.error("Error fetching product:", error);
     throw error; // Re-throw the error so it can be handled by the caller
   }
-}
+};
+
+export const revalidate = 1;
