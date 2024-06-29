@@ -20,7 +20,7 @@ export default function Error({
   console.log(thisError)
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center text-white/85 gap-5">
       <h2>Something went wrong!</h2>
       {/* <p>{thisError}</p> */}
       <Button

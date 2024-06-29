@@ -39,6 +39,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import ClientCarousel from "@/components/ClientCarousel";
+import { FileWarningIcon } from "lucide-react";
 
 const brandLogos = [
   {
@@ -162,12 +163,20 @@ export default async function Home() {
             >
               <div className="absolute rounded-sm bg-gradient-to-tr from-blue-600 via-rose-600 to-yellow-600 filter blur -z-50 -inset-1 opacity-70 group-hover:opacity-100 transition duration-1200 group-hover:duration-1000 animate-tilt"></div>
               <CardHeader className="row-span-4">
-                <Image
-                  src={product?.imageUrl}
-                  alt={product?.productName}
-                  height={250}
-                  width={400}
-                />
+                {product.imageUrl &&
+                (product.imageUrl.startsWith("http://") ||
+                  product.imageUrl.startsWith("https://")) ? (
+                  <Image
+                    src={product.imageUrl}
+                    alt={product.productName}
+                    height={250}
+                    width={400}
+                  />
+                ) : (
+                  <span className="w-full h-full flex justify-center items-center">
+                    <FileWarningIcon /> No Image Available
+                  </span>
+                )}
               </CardHeader>
               <CardContent className="row-span-2">
                 <CardTitle>{product.productName}</CardTitle>

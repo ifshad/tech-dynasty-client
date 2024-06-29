@@ -12,3 +12,5 @@ export default async function getProducts() {
     return [];
   }
 }
+
+export const revalidate = 0;

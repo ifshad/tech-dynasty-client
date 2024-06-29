@@ -18,6 +18,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { FileWarningIcon } from "lucide-react";
 
 export default async function ProductsPage() {
   const products = await getProducts();
@@ -35,12 +36,18 @@ export default async function ProductsPage() {
             >
               {/* <div className="absolute inset-0  rounded-sm bg-gradient-to-tr from-purple-400 via-rose-400 to-yellow-400 filter blur-lg -z-50"></div> */}
               <CardHeader className="row-span-4">
-                <Image
-                  src={product?.imageUrl}
-                  alt={product?.productName}
-                  height={250}
-                  width={400}
-                />
+                {product.imageUrl &&
+                (product.imageUrl.startsWith("http://") ||
+                  product.imageUrl.startsWith("https://")) ? (
+                  <Image
+                    src={product.imageUrl}
+                    alt={product.productName}
+                    height={250}
+                    width={400}
+                  />
+                ) : (
+                  <span className="w-full h-full flex justify-center items-center"><FileWarningIcon /> No Image Available</span>
+                )}
               </CardHeader>
               <CardContent className="row-span-2">
                 <CardTitle>{product.productName}</CardTitle>

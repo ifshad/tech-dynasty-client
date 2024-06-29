@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { BiCart } from "react-icons/bi";
 import Image from "next/image";
+import { FileWarningIcon } from "lucide-react";
 
 export default async function ProductDetailsPage({ params }: any) {
   const { id } = params;
@@ -18,15 +19,25 @@ export default async function ProductDetailsPage({ params }: any) {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 md:space-x-5 relative">
         <div className="absolute -bottom-4 md:bottom-4 md:left-[600px]">
-          <span className="bg-[#00FFE0] px-3 py-1 rounded-full text-gray-800">{rating}/10</span>
+          <span className="bg-[#00FFE0] px-3 py-1 rounded-full text-gray-800">
+            {rating}/10
+          </span>
         </div>
         <div className="bg-[#D9D9D9] rounded-md p-2">
-          <Image
-            src={product?.imageUrl}
-            alt={product?.productName}
-            height={550}
-            width={900}
-          />
+          {product.imageUrl &&
+          (product.imageUrl.startsWith("http://") ||
+            product.imageUrl.startsWith("https://")) ? (
+            <Image
+              src={product.imageUrl}
+              alt={product.productName}
+              height={250}
+              width={400}
+            />
+          ) : (
+            <span className="w-full h-full flex justify-center items-center">
+              <FileWarningIcon /> No Image Available
+            </span>
+          )}
         </div>
         <div className="grid grid-rows-4 md:pl-16 md:pt-10">
           <div className="row-span-2">
